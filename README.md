@@ -1,27 +1,28 @@
-# NricValidator
+# Nric Validator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+An Utility to validate Malaysia NRIC
 
-## Development server
+I decided to publish this as public library after applied this code to 3 Angular Projects and fixed some issues on it.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Tech stacks
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+- Typescript 3.8.3
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Install
 
-## Running unit tests
+`npm i nric-validator`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
 
-## Running end-to-end tests
+- check NRIC valid
+- get birth date
+- get birth place
+- get gender
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Usage
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
