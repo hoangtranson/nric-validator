@@ -3,51 +3,37 @@ import { Injectable } from '@angular/core';
 import { splitNRIC, combineToDate, getGender, inBetween } from './helpers/service.helper';
 import { isStateValid, getBirthPlace } from './helpers/state.helper';
 import { generateRandom } from './helpers/random.helper';
-import { INric } from './i-nric';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class NricService implements INric {
+export class NricService {
 
-  isNRICValid(value: string): boolean {
-    const [ input, year , month , day ,birthPlace, ...rest] = splitNRIC(value);
+  NRIC: string;
+
+  constructor(id: string) {
+    this.NRIC = id;
+  }
+
+  get isValid() {
+    const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.NRIC);
     const birthDate = combineToDate(year, month, day);
 
-    if(inBetween(month, 1, 12) && inBetween(day, 1, 31))
+    if (inBetween(month, 1, 12) && inBetween(day, 1, 31)) {
       return birthDate && isStateValid(birthPlace);
+    }
     return false;
   }
-  
-  randomNRICNumber(): string {
-    return generateRandom();
+
+  get birthDate() {
+    const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.NRIC);
+    return `${combineToDate(year, month, day)}`;
   }
 
-  formatNumber(value: string): string {
-    const [ input, year , month , day ,birthPlace, ...rest] = splitNRIC(value);
-    return `${year}${month}${day}-${birthPlace}-${rest[0]}${rest[1]}`;
+  get birthPlace() {
+    const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.NRIC);
+    return getBirthPlace(birthPlace);
   }
 
-  unFormatNumber(value: string): string {
-    return this.formatNumber(value).replace(/-/g, '');
-  }
-
-  getInfo(value: string): object {
-    const [ input, year , month , day ,birthPlace, ...rest] = splitNRIC(value);
-
-    return {
-      birthDate: `${combineToDate( year , month , day)}`,
-      birthPlace: getBirthPlace(birthPlace),
-      gender: getGender(rest[1])
-    }
-  }
-
-  autoPopulateGenderBasedOnNRIC(value: string) {
-    let lastIcNo = Number(value[11]);
-    
-    if(lastIcNo%2 !== 0 )
-      return 'M';
-    else
-      return 'F';
+  get gender() {
+    const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.NRIC);
+    return getGender(rest[1]);
   }
 }

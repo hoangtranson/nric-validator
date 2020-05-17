@@ -33,8 +33,8 @@ function dateIsBefore(before, max) {
 
 export function getGender(code) {
     return (code % 2 === 0)
-        ? 'female'
-        : 'male';
+        ? 'F'
+        : 'M';
 }
 
 export function inBetween(value, min, max) {
