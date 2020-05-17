@@ -1,6 +1,12 @@
 {
   "name": "nric-validator-project",
   "version": "0.0.0",
+  "author": "Tran Son Hoang <hayden.tran.d@gmail.com> (https://betterprogramming.info)",
+  "description": "An Utility to validate Malaysia NRIC",
+  "keywords": [
+    "nric",
+    "malaysia nric"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
