@@ -44,4 +44,8 @@ const nric = new NricService(value);
 nric.gender // F (Female) or M (Male)
 ```
 
+## Unit Test
 
+![unit test result][1]
+
+[1]: unit-test.png
