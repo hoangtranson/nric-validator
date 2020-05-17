@@ -1,24 +1,45 @@
-# NricValidator
+# NRIC Validator
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+An Utility to validate Malaysia NRIC
 
-## Code scaffolding
+I decided to publish this as public library after applied this code to 3 Angular Projects and fixed some issues on it.
 
-Run `ng generate component component-name --project nric-validator` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project nric-validator`.
-> Note: Don't forget to add `--project nric-validator` or else it will be added to the default project in your `angular.json` file. 
 
-## Build
+## Tech stacks
 
-Run `ng build nric-validator` to build the project. The build artifacts will be stored in the `dist/` directory.
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+- Typescript 3.8.3
 
-## Publishing
 
-After building your library with `ng build nric-validator`, go to the dist folder `cd dist/nric-validator` and run `npm publish`.
+## Install
 
-## Running unit tests
+`npm i nric-validator`
 
-Run `ng test nric-validator` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
 
-## Further help
+- check NRIC valid
+- get birth date
+- get gender
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Usage
+
+1. Check NRIC valid
+
+```javascript
+const nric = new NricService(value);
+nric.isValid // true or false
+```
+
+2. Get birth date
+
+```javascript
+const nric = new NricService(value);
+nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
+```
+
+3. Get gender
+
+```javascript
+const nric = new NricService(value);
+nric.gender // F (Female) or M (Male)
+```
