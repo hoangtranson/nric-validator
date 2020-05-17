@@ -1,5 +1,7 @@
 # NRIC Validator
 
+[![npm version](https://badge.fury.io/js/nric-validator.svg)](https://badge.fury.io/js/nric-validator)
+
 An Utility to validate Malaysia NRIC
 
 I decided to publish this as public library after applied this code to 3 Angular Projects and fixed some issues on it.
