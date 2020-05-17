@@ -1,4 +1,4 @@
-# Nric Validator
+# NRIC Validator
 
 An Utility to validate Malaysia NRIC
 
@@ -19,10 +19,29 @@ I decided to publish this as public library after applied this code to 3 Angular
 
 - check NRIC valid
 - get birth date
-- get birth place
 - get gender
 
 ## Usage
 
+1. Check NRIC valid
+
+```javascript
+const nric = new NricService(value);
+nric.isValid // true or false
+```
+
+2. Get birth date
+
+```javascript
+const nric = new NricService(value);
+nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
+```
+
+3. Get gender
+
+```javascript
+const nric = new NricService(value);
+nric.gender // F (Female) or M (Male)
+```
 
 
