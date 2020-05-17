@@ -5,7 +5,6 @@ import { NricService } from './nric.service';
 describe('NricService', () => {
   const PASSES = ['560224608354', '560224-82-8354', '560224108355', '190617108354'];
   const FAILS = ['1ad224-10-8354', '123234', `asd@$as12dasd`];
-  // const service = new NricService();
 
   PASSES.forEach(value => {
     it(`${value} should be valid`, () => {
@@ -15,44 +14,29 @@ describe('NricService', () => {
     })
   })
 
-  // FAILS.forEach(value => {
-  //   it(`${value} should be invalid`, () => {
-  //     expect(() => {
-  //       service.isNRICValid(value);
-  //     }).toThrowError('Invalid value number format');
-  //   })
-  // })
+  FAILS.forEach(value => {
+    it(`${value} should be invalid`, () => {
+      const myNRIC = new NricService(value);
+      expect(() => {
+        myNRIC.isValid;
+      }).toThrowError('Invalid value number format');
+    })
+  })
 
-  // it('random some IC number', () => {
-  //   const newIC = service.randomNRICNumber();
-  //   expect(newIC.length).toEqual(12);
-  // })
+  it(`NRIC ${PASSES[0]} should return 24/02/1956`, () => {
+    const myNRIC = new NricService(PASSES[0]);
+    const result = "Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)";
+    expect(myNRIC.birthDate).toEqual(result);
+  })
 
-  // it(`getInfo IC ${PASSES[0]} should return valid data`, () => {
-  //   const actual = service.getInfo(PASSES[0]);
-  //   const result = {
-  //     "birthDate": "Fri Feb 24 1956 00:00:00 GMT+0730 (Singapore Standard Time)",
-  //     "birthPlace": {
-  //       "country": "BN",
-  //       "region": "SOUTHEAST_ASIA",
-  //       "state": null,
-  //     },
-  //     "gender": "female"
-  //   }
-  //   expect(actual).toEqual(result);
-  // })
+  it(`NRIC ${PASSES[0]} should be female`, () => {
+    const myNRIC = new NricService(PASSES[0]);
+    expect(myNRIC.gender).toEqual("F");
+  })
 
-  // it(`getInfo IC ${PASSES[2]} should return valid data`, () => {
-  //   const actual = service.getInfo(PASSES[2]);
-  //   const result = {
-  //     "birthDate": "Fri Feb 24 1956 00:00:00 GMT+0730 (Singapore Standard Time)",
-  //     "birthPlace": {
-  //       "country": "MY",
-  //       "region": "SOUTHEAST_ASIA",
-  //       "state": "SGR",
-  //     },
-  //     "gender": "male"
-  //   }
-  //   expect(actual).toEqual(result);
-  // })
+
+  it(`NRIC ${PASSES[2]} should be male`, () => {
+    const myNRIC = new NricService(PASSES[2]);
+    expect(myNRIC.gender).toEqual("M");
+  })
 });

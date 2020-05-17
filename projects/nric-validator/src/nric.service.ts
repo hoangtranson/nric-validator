@@ -27,11 +27,6 @@ export class NricService {
     return `${combineToDate(year, month, day)}`;
   }
 
-  get birthPlace() {
-    const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.NRIC);
-    return getBirthPlace(birthPlace);
-  }
-
   get gender() {
     const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.NRIC);
     return getGender(rest[1]);
