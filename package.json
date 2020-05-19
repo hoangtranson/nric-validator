@@ -8,12 +8,13 @@
     "malaysia nric"
   ],
   "scripts": {
-    "test": "ava",
+    "test": "nyc ava",
     "build": "npx minify constants.js helpers.js index.js > nric.min.js"
   },
   "license": "MIT",
   "devDependencies": {
     "ava": "^3.8.2",
-    "minify": "^5.1.1"
+    "minify": "^5.1.1",
+    "nyc": "^15.0.1"
   }
 }
