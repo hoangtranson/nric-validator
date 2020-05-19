@@ -12,27 +12,27 @@ PASSES.forEach(value => {
     })
 })
 
-// FAILS.forEach(value => {
-//     test(`${value} should be invalid`, async t => {
-//         const myNRIC = new NRIC(value);
-//         const t = () => myNRIC.isValid;
-//         expect(t).toThrow("Invalid value number format");
-//     })
-// })
+FAILS.forEach(value => {
+    test(`${value} should be invalid`, async t => {
+        const myNRIC = new NRIC(value);
+        const error = await t.throws(() => myNRIC.isValid);
+        t.is(error.message, 'Invalid value number format');
+    })
+})
 
-// it(`NRIC ${PASSES[0]} should return 24/02/1956`, () => {
-//     const myNRIC = new NricService(PASSES[0]);
-//     const result = "Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)";
-//     expect(myNRIC.birthDate).toEqual(result);
-// })
+test(`NRIC ${PASSES[0]} should return 24/02/1956`, t => {
+    const myNRIC = new NRIC(PASSES[0]);
+    const result = "Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)";
+    t.is(myNRIC.birthDate, result);
+})
 
-// it(`NRIC ${PASSES[0]} should be female`, () => {
-//     const myNRIC = new NricService(PASSES[0]);
-//     expect(myNRIC.gender).toEqual("F");
-// })
+test(`NRIC ${PASSES[0]} should be female`, t => {
+    const myNRIC = new NRIC(PASSES[0]);
+    t.is(myNRIC.gender, 'F')
+})
 
 
-// it(`NRIC ${PASSES[2]} should be male`, () => {
-//     const myNRIC = new NricService(PASSES[2]);
-//     expect(myNRIC.gender).toEqual("M");
-// })
+test(`NRIC ${PASSES[2]} should be male`, t => {
+    const myNRIC = new NRIC(PASSES[2]);
+    t.is(myNRIC.gender, 'M')
+})
