@@ -1,5 +1,5 @@
 {
-  "name": "nric-validator-project",
+  "name": "nric-validator",
   "version": "0.1.4",
   "author": "Tran Son Hoang <hayden.tran.d@gmail.com> (https://betterprogramming.info)",
   "description": "An Utility to validate Malaysia NRIC",
