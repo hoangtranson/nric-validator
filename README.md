@@ -1,6 +1,6 @@
 # NRIC Validator
 
-[![npm version](https://badge.fury.io/js/nric-validator.svg)](https://badge.fury.io/js/nric-validator)
+![npm](https://img.shields.io/npm/v/nric-validator) ![npm bundle size](https://img.shields.io/bundlephobia/min/nric-validator) ![npm](https://img.shields.io/npm/dw/nric-validator)
 
 An Utility to validate Malaysia NRIC
 
