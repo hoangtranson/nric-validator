@@ -8,10 +8,12 @@
     "malaysia nric"
   ],
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "build": "npx minify constants.js helpers.js index.js > nric.min.js"
   },
   "private": true,
   "devDependencies": {
-    "ava": "^3.8.2"
+    "ava": "^3.8.2",
+    "minify": "^5.1.1"
   }
 }
