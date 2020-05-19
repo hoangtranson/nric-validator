@@ -9,9 +9,8 @@ I decided to publish this as public library after applied this code to 3 Angular
 
 ## Tech stacks
 
-- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
-- Typescript 3.8.3
-
+- Javascript
+- Ava
 
 ## Install
 
@@ -53,9 +52,3 @@ nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 const nric = new NricService(value);
 nric.gender // F (Female) or M (Male)
 ```
-
-## Unit Test
-
-![unit test result][1]
-
-[1]: unit-test.png
