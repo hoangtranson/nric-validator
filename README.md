@@ -35,20 +35,20 @@ And use like this:
 1. Check NRIC valid
 
 ```javascript
-const nric = new NricService(value);
+const nric = new NRIC(value);
 nric.isValid // true or false
 ```
 
 2. Get birth date
 
 ```javascript
-const nric = new NricService(value);
+const nric = new NRIC(value);
 nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 ```
 
 3. Get gender
 
 ```javascript
-const nric = new NricService(value);
+const nric = new NRIC(value);
 nric.gender // F (Female) or M (Male)
 ```
