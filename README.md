@@ -22,6 +22,12 @@ I decided to publish this as public library after applied this code to 3 Angular
 - get birth date
 - get gender
 
+## Benefits
+
+- Small bundle size
+- Work with all frameworks
+- Simple to use
+
 ## Usage
 
 It is simple to use the library, just import it directly to the typescript component
