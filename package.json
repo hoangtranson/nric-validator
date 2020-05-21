@@ -3,6 +3,10 @@
   "version": "0.1.8",
   "author": "Tran Son Hoang <hayden.tran.d@gmail.com> (https://betterprogramming.info)",
   "description": "An Utility to validate Malaysia NRIC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangtranson/nric-validator.git"
+  },
   "keywords": [
     "nric",
     "malaysia nric"
