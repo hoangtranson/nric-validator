@@ -8,8 +8,9 @@
     "url": "git+https://github.com/hoangtranson/nric-validator.git"
   },
   "keywords": [
-    "nric",
-    "malaysia nric"
+    "NRIC",
+    "Malaysia NRIC",
+    "MyKad"
   ],
   "scripts": {
     "test": "nyc --reporter=html ava",
