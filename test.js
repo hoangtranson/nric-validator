@@ -1,5 +1,5 @@
 const test = require('ava');
-const NRIC = require('./nric');
+const NRIC = require('.');
 
 const PASSES = ['560224608354', '560224-82-8354', '560224108355', '190617108354', '020224608354'];
 const FAILS = ['1ad224-10-8354', '123234', `asd@$as12dasd`];

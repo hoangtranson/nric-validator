@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "nyc --reporter=html ava",
-    "build": "npx minify constants.js helpers.js index.js > nric.min.js"
+    "build": "npx minify index.js > nric.min.js"
   },
   "license": "MIT",
   "devDependencies": {
