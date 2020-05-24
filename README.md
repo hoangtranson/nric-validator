@@ -38,7 +38,7 @@ import NRIC from "nric-validator";
 
 And use like this:
 
-1. Check NRIC valid
+### Check NRIC valid
 
 - if valid return `true`
 - if invalid return `Error('Invalid value number format')` || `false`
@@ -48,7 +48,7 @@ const nric = new NRIC(value);
 nric.isValid
 ```
 
-2. Get birth date 
+### Get birth date 
 
 - if valid return birthday `Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)`
 - if invalid return `Error('Invalid value number format')` || `false`
@@ -58,7 +58,7 @@ const nric = new NRIC(value);
 nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 ```
 
-3. Get gender
+### Get gender
 
 - if valid return F || M
 - if invalid return `Error('Invalid value number format')` || `false`
