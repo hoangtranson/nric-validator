@@ -216,6 +216,14 @@ class NRIC {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         return getGender(rest[1]);
     }
+
+    get age() {
+        const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
+        const today = new Date();
+        const combinedDate = new Date(year, month - 1, day);
+        const age = today.getFullYear() - combinedDate.getFullYear();
+        return age >= 100 ? age - 100 : age;
+    }
 }
 
 module.exports = NRIC;

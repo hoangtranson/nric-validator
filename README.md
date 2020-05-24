@@ -67,3 +67,13 @@ nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 const nric = new NRIC(value);
 nric.gender // F (Female) or M (Male)
 ```
+
+### Get age
+
+- if valid return age
+- if invalid return `Error('Invalid value number format')` || `false`
+
+```javascript
+const nric = new NRIC(value);
+nric.age // 29
+```
