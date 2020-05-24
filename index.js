@@ -310,6 +310,23 @@ var NRIC = /*#__PURE__*/function () {
 
       return getGender(rest[1]);
     }
+  }, {
+    key: "age",
+    get: function get() {
+      var _splitNRIC7 = splitNRIC(this.id),
+          _splitNRIC8 = _toArray(_splitNRIC7),
+          input = _splitNRIC8[0],
+          year = _splitNRIC8[1],
+          month = _splitNRIC8[2],
+          day = _splitNRIC8[3],
+          birthPlace = _splitNRIC8[4],
+          rest = _splitNRIC8.slice(5);
+
+      var today = new Date();
+      var combinedDate = new Date(year, month - 1, day);
+      var age = today.getFullYear() - combinedDate.getFullYear();
+      return age >= 100 ? age - 100 : age;
+    }
   }]);
 
   return NRIC;
