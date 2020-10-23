@@ -192,6 +192,10 @@ function getBirthPlace(code) {
     return null;
 }
 
+function isNumeric(value) {
+    return /^\d+$/.test(value);
+}
+
 class NRIC {
     constructor(id) {
         this.id = id;
@@ -223,6 +227,32 @@ class NRIC {
         const combinedDate = new Date(year, month - 1, day);
         const age = today.getFullYear() - combinedDate.getFullYear();
         return age >= 100 ? age - 100 : age;
+    }
+
+    static format(_value, _delimiter = "-"){
+        _value = `${_value}`;
+
+        if(!isNumeric(_value)) {
+            throw new Error('Invalid value number format');
+        }
+
+        if(_value.length > 12) {
+            throw new Error('Invalid value number length');
+        }
+
+        const first = _value.substring(0,6);
+        const second = _value.substring(6,8);
+        const third = _value.substring(8, 12);
+
+        if(third) {
+            return first + _delimiter + second + _delimiter + third;
+        }
+
+        if(second){
+            return first + _delimiter + second
+        }
+
+        return first;
     }
 }
 

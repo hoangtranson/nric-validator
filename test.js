@@ -1,5 +1,6 @@
 const test = require('ava');
 const NRIC = require('.');
+// const NRIC = require('./nric');
 
 const PASSES = [
   '560224608354', 
@@ -58,4 +59,35 @@ test(`NRIC ${PASSES[0]} should return age 64`, t => {
 test(`NRIC ${PASSES[0]} should return age 18`, t => {
     const myNRIC = new NRIC(PASSES[4]);
     t.is(myNRIC.age, 18);
+})
+
+test(`NRIC ${PASSES[0]} should have right format`, t => {
+    t.is(NRIC.format(PASSES[0]), '560224-60-8354');
+})
+
+test(`NRIC 560224608 should have right format`, t => {
+    t.is(NRIC.format('560224608'), '560224-60-8');
+})
+
+test(`NRIC 56022460 should have right format`, t => {
+    t.is(NRIC.format('56022460'), '560224-60');
+})
+
+test(`NRIC 56022 should have right format`, t => {
+    t.is(NRIC.format('56022'), '56022');
+})
+
+test(`NRIC 56022460835456 should have right format`, async t => {
+    const error = await t.throws(() => NRIC.format('56022460835456'));
+    t.is(error.message, 'Invalid value number length');
+})
+
+test(`NRIC 1ad224-10-8354 should have right format`, async t => {
+    const error = await t.throws(() => NRIC.format('1ad224-10-8354'));
+    t.is(error.message, 'Invalid value number format');
+})
+
+test(`NRIC asd@$as12dasd should have right format`, async t => {
+    const error = await t.throws(() => NRIC.format('asd@$as12dasd'));
+    t.is(error.message, 'Invalid value number format');
 })
