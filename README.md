@@ -16,6 +16,7 @@ I decided to publish this as public library after using this library to 3 Angula
 
 `npm i nric-validator`
 
+
 ## Features
 
 - check NRIC valid
@@ -113,4 +114,17 @@ NRIC.format('56022460835456') // Error('Invalid value number length')
 
 ```javascript
 NRIC.format('1ad224-10-8354') // Error('Invalid value number format')
+```
+
+### Support Traditional Way
+
+We can get the library directly from here:
+
+`https://unpkg.com/nric-validator@0.3.1/nric.min.js`
+
+then, you can get it from window object and using normally.
+
+```javascript
+const test = new window.NRIC('560224608354');
+test.isValid // true
 ```
