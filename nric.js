@@ -256,4 +256,6 @@ class NRIC {
     }
 }
 
+// window.NRIC = NRIC;
+
 module.exports = NRIC;
