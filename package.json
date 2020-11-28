@@ -12,9 +12,6 @@
     "Malaysia NRIC",
     "MyKad"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@hoangtranson"
-  },
   "scripts": {
     "test": "nyc --reporter=html ava",
     "build": "npx minify index.js > nric.min.js"
