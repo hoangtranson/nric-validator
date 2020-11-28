@@ -17,6 +17,9 @@
     "build": "npx minify index.js > nric.min.js"
   },
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "ava": "^3.8.2",
     "minify": "^5.1.1",
