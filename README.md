@@ -16,6 +16,12 @@ I decided to publish this as public library after using this library to 3 Angula
 
 `npm i nric-validator`
 
+for Deno support, you can get library from here.
+
+```
+import * as NRIC from "https://deno.land/x/nric_validator";
+
+```
 
 ## Features
 
