@@ -55,7 +55,7 @@ Valid format is `YYMMDD-PB-###G`.
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = NRIC(value);
+const nric = new NRIC(value);
 nric.isValid
 ```
 
@@ -65,7 +65,7 @@ nric.isValid
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = NRIC(value);
+const nric = new NRIC(value);
 nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 ```
 
@@ -75,7 +75,7 @@ nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = NRIC(value);
+const nric = new NRIC(value);
 nric.gender // F (Female) or M (Male)
 ```
 
@@ -85,7 +85,7 @@ nric.gender // F (Female) or M (Male)
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = NRIC(value);
+const nric = new NRIC(value);
 nric.age // 29
 ```
 
@@ -93,12 +93,12 @@ nric.age // 29
 
 We can get the library directly from here:
 
-`https://unpkg.com/nric-validator@0.3.3/nric.min.js`
+`https://unpkg.com/nric-validator@0.3.5`
 
 then, you can get it from window object and using normally.
 
 ```javascript
-const test = window.NRIC('560224608354');
+const test = new window.NRIC('560224608354');
 test.isValid // true
 ```
 
