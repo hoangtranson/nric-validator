@@ -194,7 +194,7 @@ const combineToDate = (year, month, day) => {
 function NRIC(_id) {
     this.id = _id;
 
-    const isValid = function() {
+    const isValid = () => {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         const birthDate = combineToDate(year, month, day);
     
@@ -204,17 +204,17 @@ function NRIC(_id) {
         return false;
     }
 
-    const birthDate = function() {
+    const birthDate = () => {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         return `${combineToDate(year, month, day)}`;
     }
     
-    const gender = function() {
+    const gender = () => {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         return getGender(rest[1]);
     }
     
-    const age = function() {
+    const age = () => {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         const today = new Date();
         const combinedDate = new Date(year, month - 1, day);
@@ -266,5 +266,4 @@ function NRIC(_id) {
 };
 
 // window.NRIC = NRIC;
-
 export default NRIC;
