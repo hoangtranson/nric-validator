@@ -108,31 +108,6 @@ const countryCodePairs = {
     '99': { country: 'UNSPECIFIED', region: null },
 };
 
-const splitNRIC = value => {
-    const regex = /^(\d{2})(\d{2})(\d{2})-?(\d{2})-?(\d{3})(\d{1})$/;
-    const parts = value.match(regex);
-
-    if (!parts) {
-        throw new Error('Invalid value number format');
-    }
-
-    return parts;
-}
-
-
-const combineToDate = (year, month, day) => {
-    const today = new Date();
-    const combinedDate = new Date(year, month - 1, day);
-
-    const age = today.getFullYear() - combinedDate.getFullYear();
-
-    if (age > 100 || (age == 100 && dateIsBefore(combinedDate, today))) {
-        combinedDate.setFullYear(combinedDate.getFullYear() + 100);
-    }
-
-    return combinedDate;
-}
-
 const dateIsBefore = (before, max) => {
     const bNorm = new Date(0, before.getMonth(), before.getDate());
     const mNorm = new Date(0, max.getMonth(), max.getDate());
@@ -196,32 +171,54 @@ function isNumeric(value) {
     return /^\d+$/.test(value);
 }
 
-class NRIC {
-    constructor(id) {
-        this.id = id;
+const splitNRIC = value => {
+    const regex = /^(\d{2})(\d{2})(\d{2})-?(\d{2})-?(\d{3})(\d{1})$/;
+    const parts = value.match(regex);
+
+    if (!parts) {
+        throw new Error('Invalid value number format');
     }
 
-    get isValid() {
+    return parts;
+}
+
+const combineToDate = (year, month, day) => {
+    const today = new Date();
+    const combinedDate = new Date(year, month, day);
+
+    const age = today.getFullYear() - combinedDate.getFullYear();
+
+    if (age > 100 || (age == 100 && dateIsBefore(combinedDate, today))) {
+        combinedDate.setFullYear(combinedDate.getFullYear() + 100);
+    }
+
+    return combinedDate;
+}
+
+function NRIC(_id) {
+    this.id = _id;
+
+    const isValid = function() {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         const birthDate = combineToDate(year, month, day);
-
+    
         if (inBetween(month, 1, 12) && inBetween(day, 1, 31)) {
             return birthDate && isStateValid(birthPlace);
         }
         return false;
     }
 
-    get birthDate() {
+    const birthDate = function() {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         return `${combineToDate(year, month, day)}`;
     }
-
-    get gender() {
+    
+    const gender = function() {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         return getGender(rest[1]);
     }
-
-    get age() {
+    
+    const age = function() {
         const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
         const today = new Date();
         const combinedDate = new Date(year, month - 1, day);
@@ -229,32 +226,48 @@ class NRIC {
         return age >= 100 ? age - 100 : age;
     }
 
-    static format(_value, _delimiter = "-"){
-        _value = `${_value}`;
+    // const formatBirthDate = function(_format = "DD/MM/YYYY") {
+    //     const [input, year, month, day, birthPlace, ...rest] = splitNRIC(this.id);
+    //     const birthDate = combineToDate(year, month, day);
+    //     const _day = birthDate.getDate();
+    //     const _month = birthDate.getMonth();
+    //     const _year = birthDate.getFullYear();
+    //     return _format.replace('DD', _day).replace('MM', _month).replace('YYYY', _year);
+    // }
 
-        if(!isNumeric(_value)) {
-            throw new Error('Invalid value number format');
-        }
+    // const formatNRIC = function(_delimiter = "-") {
+    //     let _value = `${this.id}`;
+    
+    //     if(!isNumeric(_value)) {
+    //         throw new Error('Invalid value number format');
+    //     }
+    
+    //     if(_value.length > 12) {
+    //         throw new Error('Invalid value number length');
+    //     }
+    
+    //     const first = _value.substring(0,6);
+    //     const second = _value.substring(6,8);
+    //     const third = _value.substring(8, 12);
+    
+    //     if(third) {
+    //         return first + _delimiter + second + _delimiter + third;
+    //     }
+    
+    //     if(second){
+    //         return first + _delimiter + second
+    //     }
+    
+    //     return first;
+    // }
 
-        if(_value.length > 12) {
-            throw new Error('Invalid value number length');
-        }
-
-        const first = _value.substring(0,6);
-        const second = _value.substring(6,8);
-        const third = _value.substring(8, 12);
-
-        if(third) {
-            return first + _delimiter + second + _delimiter + third;
-        }
-
-        if(second){
-            return first + _delimiter + second
-        }
-
-        return first;
+    return {
+        isValid: isValid(),
+        birthDate: birthDate(),
+        gender: gender(),
+        age: age()
     }
-}
+};
 
 // window.NRIC = NRIC;
 
