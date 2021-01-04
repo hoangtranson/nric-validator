@@ -16,7 +16,6 @@ I decided to publish this as public library after using this library to 3 Angula
 
 `npm i nric-validator`
 
-
 ## Features
 
 - check NRIC valid
@@ -127,4 +126,13 @@ then, you can get it from window object and using normally.
 ```javascript
 const test = new window.NRIC('560224608354');
 test.isValid // true
+```
+
+### Deno
+
+You can get library from here.
+
+```
+import * as NRIC from "https://deno.land/x/nric_validator";
+
 ```
