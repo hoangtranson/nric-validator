@@ -93,7 +93,7 @@ nric.age // 29
 
 We can get the library directly from here:
 
-`https://unpkg.com/nric-validator@0.3.1/nric.min.js`
+`https://unpkg.com/nric-validator@0.3.3/nric.min.js`
 
 then, you can get it from window object and using normally.
 
