@@ -22,7 +22,6 @@ I decided to publish this as public library after using this library to 3 Angula
 - get birth date
 - get gender
 - get age
-- format NRIC number
 
 ## Benefits
 
@@ -56,7 +55,7 @@ Valid format is `YYMMDD-PB-###G`.
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = new NRIC(value);
+const nric = NRIC(value);
 nric.isValid
 ```
 
@@ -66,7 +65,7 @@ nric.isValid
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = new NRIC(value);
+const nric = NRIC(value);
 nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 ```
 
@@ -76,7 +75,7 @@ nric.birthDate // Fri Feb 24 1956 00:00:00 GMT+0730 (Malaysia Time)
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = new NRIC(value);
+const nric = NRIC(value);
 nric.gender // F (Female) or M (Male)
 ```
 
@@ -86,33 +85,8 @@ nric.gender // F (Female) or M (Male)
 - if invalid return `Error('Invalid value number format')` || `false`
 
 ```javascript
-const nric = new NRIC(value);
+const nric = NRIC(value);
 nric.age // 29
-```
-
-### Format NRIC number
-
-A static method with 2 arguments:
-- NRIC value
-- Delimiter (default `-`)
-
-```javascript
-NRIC.format('560224608354') // 560224-60-8354
-NRIC.format('560224608') // 560224-60-8
-NRIC.format('56022460') // 560224-60
-NRIC.format('56022') // 56022
-```
-
-- if the value length more than 12, return `Error('Invalid value number length')`
-
-```javascript
-NRIC.format('56022460835456') // Error('Invalid value number length')
-```
-
-- if the value is not numberic, return `Error('Invalid value number format')`
-
-```javascript
-NRIC.format('1ad224-10-8354') // Error('Invalid value number format')
 ```
 
 ### Support Traditional Way
@@ -124,7 +98,7 @@ We can get the library directly from here:
 then, you can get it from window object and using normally.
 
 ```javascript
-const test = new window.NRIC('560224608354');
+const test = window.NRIC('560224608354');
 test.isValid // true
 ```
 
