@@ -1,6 +1,6 @@
 {
   "name": "nric-validator",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "author": "Tran Son Hoang <hayden.tran.d@gmail.com> (https://betterprogramming.info)",
   "description": "An Utility to validate Malaysia NRIC",
   "repository": {
