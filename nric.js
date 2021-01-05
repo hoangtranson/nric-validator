@@ -130,12 +130,6 @@ function numisBetween(num, lower, upper) {
   return (num - lower) * (num - upper) <= 0;
 }
 
-function codeToState(code) {
-  return Object.keys(stateCodePairs).find((key) =>
-    stateCodePairs[key].includes(code)
-  );
-}
-
 function isMalaysia(code) {
   return numisBetween(code, 1, 16) || numisBetween(code, 21, 59) || code == 82;
 }
@@ -144,24 +138,6 @@ function isForeign(code) {
   return countryCodePairs[code] != undefined;
 }
 
-function parseMalaysia(code) {
-  return {
-    region: REGION_SOUTHEAST_ASIA,
-    country: "MY",
-    state: codeToState(code),
-  };
-}
-
-function parseForeign(code) {
-  return Object.assign({ state: null }, countryCodePairs[code]);
-}
-
-function getBirthPlace(code) {
-  if (isMalaysia(code)) return parseMalaysia(code);
-  if (isForeign(code)) return parseForeign(code);
-
-  return null;
-}
 
 function isNumeric(value) {
   return /^\d+$/.test(value);
