@@ -110,35 +110,3 @@ You can get library from here.
 ```
 import * as NRIC from "https://deno.land/x/nric_validator";
 ```
-
-### Issues
-
-1. Could not find a declaration file for module 'nric-validator' at Angular Project
-
-```
-Could not find a declaration file for module 'nric-validator'. 'd:/Allianz-Online/SIT/motor_online_angular_11/angular/node_modules/nric-validator/index.js' implicitly has an 'any' type.
-  Try `npm i --save-dev @types/nric-validator` if it exists or add a new declaration (.d.ts) file containing `declare module 'nric-validator';`ts(7016)
-```
-
-Solution: try one of two solution below
-
-1. set `noImplicitAny` to `false` in `tsconfig.json` file
-
-
-```
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
-{
-  ...
-  "compilerOptions": {
-    ...
-    "noImplicitAny": false
-  },
-  ...
-}
-```
-
-2. change `import` to `required`.
-
-```
-const NRIC = require("nric-validator");
-```
