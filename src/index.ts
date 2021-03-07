@@ -49,7 +49,7 @@ export default class NRIC {
     return parts;
   }
 
-  private getGender(code: number){
+  private getGender(code: number) {
     return code % 2 === 0 ? "F" : "M";
-  };
+  }
 }
