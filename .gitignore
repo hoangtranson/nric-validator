@@ -1,6 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/node_modules
-/coverage
-/.nyc_output
+node_modules
+lib
 .vscode
