@@ -1,4 +1,4 @@
-import NRIC from "../src";
+import NRIC from "../lib";
 
 describe('NRIC Validator Pass Cases', () => {
 
