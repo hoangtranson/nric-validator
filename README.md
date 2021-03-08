@@ -10,8 +10,10 @@ If you have any issue to use this library. Please creating issues [here](https:/
 
 ## Tech stacks
 
-- Javascript
-- Ava
+- TypeScript
+- Jest
+- Prettier
+- tslint
 
 ## Install
 
