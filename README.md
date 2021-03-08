@@ -17,7 +17,14 @@ If you have any issue to use this library. Please creating issues [here](https:/
 
 ## Install
 
-`npm i nric-validator`
+- Npm
+    `npm i nric-validator`
+- Yarn
+    `yarn add nric-validator`
+- CDNs
+    - https://unpkg.com/browse/nric-validator@0.3.7
+    - https://cdn.jsdelivr.net/npm/nric-validator@0.3.7
+    - https://bundle.run/nric-validator@0.3.7
 
 ## Features
 
