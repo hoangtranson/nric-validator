@@ -66,7 +66,7 @@ Valid format is `YYMMDD-PB-###G`.
 
 ```javascript
 const nric = new NRIC(value);
-nric.isValid
+nric.valid
 ```
 
 ### Get birth date 

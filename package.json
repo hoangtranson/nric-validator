@@ -1,7 +1,7 @@
 {
   "name": "nric-validator",
   "version": "0.3.7",
-  "author": "Tran Son Hoang <hayden.tran.d@gmail.com> (https://betterprogramming.info)",
+  "author": "Tran Son Hoang <hayden.tran.d@gmail.com> (https://betterfullstack.com)",
   "description": "An Utility to validate Malaysia NRIC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
