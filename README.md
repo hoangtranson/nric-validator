@@ -99,23 +99,3 @@ const nric = new NRIC(value);
 nric.age // 29
 ```
 
-### Support Traditional Way
-
-We can get the library directly from here:
-
-`https://unpkg.com/nric-validator@0.3.5`
-
-then, you can get it from window object and using normally.
-
-```javascript
-const test = new window.NRIC('560224608354');
-test.isValid // true
-```
-
-### Deno
-
-You can get library from here.
-
-```
-import * as NRIC from "https://deno.land/x/nric_validator";
-```
